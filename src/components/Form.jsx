@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "./TextInput";
+import Input from "./Input";
 
 const Form = () => {
   const [name, setName] = useState("");
@@ -16,10 +16,11 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextInput
+      <Input
         id="name"
         label="Name: "
         onChange={handleNameChange}
+        type="text"
         value={name}
       />
 
