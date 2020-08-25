@@ -1,14 +1,22 @@
 import t from "prop-types";
 import React from "react";
+import StyledInput, { InputWrapper, Label } from "./Input.styles";
 
 const Input = (props) => {
   const { error, id, label, onChange, type, value, ...rest } = props;
   return (
-    <div className="text-input">
-      <label htmlFor={id}>{label}</label>
-      <input id={id} onChange={onChange} type={type} value={value} {...rest} />
+    <InputWrapper>
+      <Label htmlFor={id}>{label}</Label>
+      <StyledInput
+        id={id}
+        isError={!!error}
+        onChange={onChange}
+        type={type}
+        value={value}
+        {...rest}
+      />
       {error && <p>{error}</p>}
-    </div>
+    </InputWrapper>
   );
 };
 

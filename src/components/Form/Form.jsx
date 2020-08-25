@@ -1,6 +1,8 @@
 import React from "react";
-import { useEmail, useName, usePhone } from "../hooks";
-import Input from "./Input";
+import { useEmail, useName, usePhone } from "../../hooks";
+import Button from "../Button";
+import Input from "../Input";
+import StyledForm from "./Form.styles";
 
 const Form = () => {
   const [name, handleNameChange, nameError] = useName();
@@ -14,12 +16,13 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <Input
         error={nameError}
         id="name"
         label="Name: "
         onChange={handleNameChange}
+        placeholder="Name"
         type="text"
         value={name}
       />
@@ -29,6 +32,7 @@ const Form = () => {
         id="email"
         label="Email: "
         onChange={handleEmailChange}
+        placeholder="Email"
         type="email"
         value={email}
       />
@@ -38,12 +42,13 @@ const Form = () => {
         id="phone"
         label="Phone: "
         onChange={handlePhoneChange}
+        placeholder="Phone"
         type="tel"
         value={phone}
       />
 
-      <button type="submit">Submit form</button>
-    </form>
+      <Button type="submit">Submit form</Button>
+    </StyledForm>
   );
 };
 

@@ -1,11 +1,12 @@
 import React from "react";
-import Form from "./components/Form";
+import Form from "../Form";
+import StyledApp from "./App.styles";
 
 const App = () => {
   return (
-    <div className="frontiers-formday-funday">
+    <StyledApp>
       <Form />
-    </div>
+    </StyledApp>
   );
 };
 
