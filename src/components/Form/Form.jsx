@@ -6,9 +6,9 @@ import Wrapper from "../Wrapper";
 import StyledForm from "./Form.styles";
 
 const Form = () => {
-  const { name, nameError, handleNameChange, handleNameBlur } = useName();
-  const { email, emailError, handleEmailChange, handleEmailBlur } = useEmail();
-  const { phone, phoneError, handlePhoneChange, handlePhoneBlur } = usePhone();
+  const [name, nameError, handleNameChange, handleNameBlur] = useName();
+  const [email, emailError, handleEmailChange, handleEmailBlur] = useEmail();
+  const [phone, phoneError, handlePhoneChange, handlePhoneBlur] = usePhone();
   const error = useError(nameError, emailError, phoneError);
 
   const handleSubmit = (e) => {

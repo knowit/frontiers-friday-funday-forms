@@ -5,23 +5,26 @@ const useName = () => {
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleNameChange = (e) => {
+  const handleChange = (e) => {
     setName(e.target.value);
   };
 
-  const handleNameBlur = (e) => {
+  const handleBlur = (e) => {
     setTouched(true);
   };
 
   useEffect(() => {
     let errorMessage = null;
 
-    // TODO: Add validation on name here.
+    // TODO: Replace validation with something messed up.
+    if (name.length < 3) {
+      errorMessage = "Your name is too short.";
+    }
 
     touched && setError(errorMessage);
   }, [touched, name]);
 
-  return { name, error, handleNameChange, handleNameBlur };
+  return [name, error, handleChange, handleBlur];
 };
 
 export default useName;

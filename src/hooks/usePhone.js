@@ -5,23 +5,29 @@ const usePhone = () => {
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState(null);
 
-  const handlePhoneChange = (e) => {
+  const handleChange = (e) => {
     setPhone(e.target.value);
   };
 
-  const handlePhoneBlur = (e) => {
+  const handleBlur = (e) => {
     setTouched(true);
   };
 
   useEffect(() => {
     let errorMessage = null;
 
-    // TODO: Add validation on phone here.
+    // TODO: Replace validation with something messed up.
+    if (phone.length < 8) {
+      errorMessage = "Phone number is too short.";
+    }
+    if (phone.length > 8) {
+      errorMessage = "Phone number is too long.";
+    }
 
     touched && setError(errorMessage);
   }, [touched, phone]);
 
-  return { phone, error, handlePhoneChange, handlePhoneBlur };
+  return [phone, error, handleChange, handleBlur];
 };
 
 export default usePhone;
