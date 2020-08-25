@@ -1,5 +1,5 @@
 import React from "react";
-import { useEmail, useName, usePhone } from "../../hooks";
+import { useEmail, useError, useName, usePhone } from "../../hooks";
 import Button from "../Button";
 import Input from "../Input";
 import Wrapper from "../Wrapper";
@@ -9,7 +9,7 @@ const Form = () => {
   const [name, handleNameChange, nameError] = useName();
   const [email, handleEmailChange, emailError] = useEmail();
   const [phone, handlePhoneChange, phoneError] = usePhone();
-  const error = !!(nameError || emailError || phoneError);
+  const error = useError(nameError, emailError, phoneError);
 
   const handleSubmit = (e) => {
     e.preventDefault();
