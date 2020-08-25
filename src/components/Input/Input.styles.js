@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 export const InputWrapper = styled.div`
-  margin: 2rem 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  & + & {
+    margin-top: 2rem;
+  }
 `;
 
 export const Label = styled.label`

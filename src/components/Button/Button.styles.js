@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export default styled.button`
+  display: inline-flex;
   outline: 0;
-  margin: 1rem 0;
+  margin: 3rem 0 1rem;
   padding: 1em 2em;
   border: none;
   background-color: #e4e1db;
