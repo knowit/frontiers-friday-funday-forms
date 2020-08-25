@@ -2,6 +2,7 @@ import React from "react";
 import { useEmail, useName, usePhone } from "../../hooks";
 import Button from "../Button";
 import Input from "../Input";
+import Wrapper from "../Wrapper";
 import StyledForm from "./Form.styles";
 
 const Form = () => {
@@ -16,39 +17,41 @@ const Form = () => {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <Input
-        error={nameError}
-        id="name"
-        label="Name: "
-        onChange={handleNameChange}
-        placeholder="Name"
-        type="text"
-        value={name}
-      />
+    <Wrapper narrow>
+      <StyledForm onSubmit={handleSubmit}>
+        <Input
+          error={nameError}
+          id="name"
+          label="Name: "
+          onChange={handleNameChange}
+          placeholder="Name"
+          type="text"
+          value={name}
+        />
 
-      <Input
-        error={emailError}
-        id="email"
-        label="Email: "
-        onChange={handleEmailChange}
-        placeholder="Email"
-        type="email"
-        value={email}
-      />
+        <Input
+          error={emailError}
+          id="email"
+          label="Email: "
+          onChange={handleEmailChange}
+          placeholder="Email"
+          type="email"
+          value={email}
+        />
 
-      <Input
-        error={phoneError}
-        id="phone"
-        label="Phone: "
-        onChange={handlePhoneChange}
-        placeholder="Phone"
-        type="tel"
-        value={phone}
-      />
+        <Input
+          error={phoneError}
+          id="phone"
+          label="Phone: "
+          onChange={handlePhoneChange}
+          placeholder="Phone"
+          type="tel"
+          value={phone}
+        />
 
-      <Button type="submit">Submit form</Button>
-    </StyledForm>
+        <Button type="submit">Submit form</Button>
+      </StyledForm>
+    </Wrapper>
   );
 };
 

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export default styled.div`
-  margin: 1rem 0;
-  background-color: #e4e1db;
+  max-width: ${(props) => (props.narrow ? `16rem` : `auto`)};
   margin: 0 auto;
-  padding: 0 2rem;
 `;
