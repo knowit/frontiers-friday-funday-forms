@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 
 const useEmail = () => {
   const [email, setEmail] = useState("");
+  const [touched, setTouched] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleEmailChange = (e) => {
     setEmail(e.target.value);
+  };
+
+  const handleEmailBlur = (e) => {
+    setTouched(true);
   };
 
   useEffect(() => {
@@ -13,10 +18,10 @@ const useEmail = () => {
 
     // TODO: Add validation on email here.
 
-    setError(errorMessage);
-  }, [email]);
+    touched && setError(errorMessage);
+  }, [touched, email]);
 
-  return [email, handleChange, error];
+  return { email, error, handleEmailChange, handleEmailBlur };
 };
 
 export default useEmail;

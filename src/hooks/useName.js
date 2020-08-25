@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 
 const useName = () => {
   const [name, setName] = useState("");
+  const [touched, setTouched] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleNameChange = (e) => {
     setName(e.target.value);
+  };
+
+  const handleNameBlur = (e) => {
+    setTouched(true);
   };
 
   useEffect(() => {
@@ -13,10 +18,10 @@ const useName = () => {
 
     // TODO: Add validation on name here.
 
-    setError(errorMessage);
-  }, [name]);
+    touched && setError(errorMessage);
+  }, [touched, name]);
 
-  return [name, handleChange, error];
+  return { name, error, handleNameChange, handleNameBlur };
 };
 
 export default useName;

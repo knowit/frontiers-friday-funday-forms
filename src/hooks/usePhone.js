@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 
 const usePhone = () => {
   const [phone, setPhone] = useState("");
+  const [touched, setTouched] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleChange = (e) => {
+  const handlePhoneChange = (e) => {
     setPhone(e.target.value);
+  };
+
+  const handlePhoneBlur = (e) => {
+    setTouched(true);
   };
 
   useEffect(() => {
@@ -13,10 +18,10 @@ const usePhone = () => {
 
     // TODO: Add validation on phone here.
 
-    setError(errorMessage);
-  }, [phone]);
+    touched && setError(errorMessage);
+  }, [touched, phone]);
 
-  return [phone, handleChange, error];
+  return { phone, error, handlePhoneChange, handlePhoneBlur };
 };
 
 export default usePhone;
