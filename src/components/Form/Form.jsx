@@ -9,6 +9,7 @@ const Form = () => {
   const [name, handleNameChange, nameError] = useName();
   const [email, handleEmailChange, emailError] = useEmail();
   const [phone, handlePhoneChange, phoneError] = usePhone();
+  const error = !!(nameError || emailError || phoneError);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +50,9 @@ const Form = () => {
           value={phone}
         />
 
-        <Button type="submit">Submit form</Button>
+        <Button disabled={error} type="submit">
+          Submit form
+        </Button>
       </StyledForm>
     </Wrapper>
   );

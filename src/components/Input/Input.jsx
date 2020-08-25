@@ -1,5 +1,6 @@
 import t from "prop-types";
 import React from "react";
+import { Error } from "../Typography";
 import StyledInput, { InputWrapper, Label } from "./Input.styles";
 
 const Input = (props) => {
@@ -9,13 +10,13 @@ const Input = (props) => {
       <Label htmlFor={id}>{label}</Label>
       <StyledInput
         id={id}
-        isError={!!error}
+        error={!!error}
         onChange={onChange}
         type={type}
         value={value}
         {...rest}
       />
-      {error && <p>{error}</p>}
+      {error && <Error>{error}</Error>}
     </InputWrapper>
   );
 };

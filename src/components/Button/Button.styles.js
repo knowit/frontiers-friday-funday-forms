@@ -10,17 +10,22 @@ export default styled.button`
   text-align: center;
   color: #000;
   border-radius: 2em;
-  cursor: pointer;
   line-height: 1em;
   transition: all 0.1s ease-in-out;
   box-shadow: 5px 5px 10px #c2bfba, -5px -5px 10px #fffffc;
 
-  &:hover {
+  &:hover&:not([disabled]) {
     text-decoration: underline;
+    cursor: pointer;
   }
 
-  &:active {
+  &:active&:not([disabled]) {
     background: #e4e1db;
     box-shadow: inset 5px 5px 10px #c2bfba, inset -5px -5px 10px #fffffc;
+  }
+
+  &[disabled] {
+    box-shadow: none;
+    opacity: 0.5;
   }
 `;

@@ -19,7 +19,7 @@ export default styled.input`
   outline: 0;
   margin: 0;
   padding: 1em 2em;
-  border: ${(props) => (!!props.isError ? `1px solid red` : `none`)};
+  border: ${(props) => (!!props.error ? `1px solid red` : `none`)};
   background-color: #e4e1db;
   color: #000;
   border-radius: 2em;
