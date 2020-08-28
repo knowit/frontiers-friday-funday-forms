@@ -16,12 +16,14 @@ const usePhone = () => {
   useEffect(() => {
     let errorMessage = null;
 
-    // TODO: Replace validation with something messed up.
-    if (phone.length < 8) {
-      errorMessage = "Phone number is too short.";
+    if (parseInt(phone) < 60000000) {
+      errorMessage = "Phone number must be larger than 60 million.";
     }
-    if (phone.length > 8) {
-      errorMessage = "Phone number is too long.";
+    if (parseInt(phone) > 80000000) {
+      errorMessage = "Phone number must be smaller than 80 million.";
+    }
+    if (parseInt(phone) > 80000000 && parseInt(phone) < 60000000) {
+      errorMessage = "That is not a valid Norwegian phone number.";
     }
 
     touched && setError(errorMessage);

@@ -6,7 +6,9 @@ const useName = () => {
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    setName(e.target.value);
+    let newName = `${e.target.value}`;
+    newName = newName.toUpperCase().split("").sort().join("").toLowerCase();
+    setName(newName.charAt(0).toUpperCase() + newName.slice(1));
   };
 
   const handleBlur = (e) => {
@@ -16,9 +18,8 @@ const useName = () => {
   useEffect(() => {
     let errorMessage = null;
 
-    // TODO: Replace validation with something messed up.
-    if (name.length < 3) {
-      errorMessage = "Your name is too short.";
+    if (name.length > 0) {
+      errorMessage = "That can't be right. No lollygagging!";
     }
 
     touched && setError(errorMessage);

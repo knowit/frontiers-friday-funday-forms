@@ -40,6 +40,7 @@ const Form = () => {
           placeholder="Email"
           type="email"
           value={email}
+          opacity={Math.max(7 - email.length, 0) / 7}
         />
 
         <Input

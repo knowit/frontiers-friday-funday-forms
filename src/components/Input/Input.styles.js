@@ -26,4 +26,5 @@ export default styled.input`
   transition: all 0.1s ease-in-out;
   background: #e4e1db;
   box-shadow: inset 5px 5px 10px #c2bfba, inset -5px -5px 10px #fffffc;
+  opacity: ${(props) => props.opacity};
 `;
